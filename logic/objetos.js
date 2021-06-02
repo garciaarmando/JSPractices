@@ -12,9 +12,6 @@ const armando = {
         twitter: "@armandopsi",
         github: "@garciaarmando",
     },
-    saludar: function(nombre) {
-        console.log(`Hola, mi nombre es ${nombre} :)`);
-    },
     decirMiNombre: function() {
         //usando los valores del objeto
         console.log(
@@ -29,11 +26,10 @@ console.log(armando["nombre"]); //corchetes, no muy usada
 console.log(armando.nombre); //accediendo a propiedades
 console.log(armando.pasatiempos[2]); // accediendo a valores del array
 console.log(armando.contacto.email); // accediendo a valores del objeto contacto
-armando.saludar("Armando"); //ejecutando la función del objeto
-armando.decirMiNombre(); //esta función usa los propios valores nombre-apellido-edad-contacto.twitter del propio objeto
+armando.decirMiNombre(); //ejecutando la función del objeto, misma que usa los propios valores nombre-apellido-edad-contacto.twitter del propio objeto
 
 //métodos de objeto
 
 console.log(Object.keys(armando)); //Lista las llaves del objeto (nombre, apellido, etc.)
-console.log(Object.values(armando)); //Lista los atributos y los métodos del objeto
-console.log(armando.hasOwnProperty("nombre")); //Indica si determinado objeto tiene determinada llave dentro
+console.log(Object.values(armando)); //Lista los atributos y métodos del objeto
+console.log(armando.hasOwnProperty("nombre")); //Indica si el objeto tiene la llave indicada dentro
