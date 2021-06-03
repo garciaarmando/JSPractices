@@ -18,7 +18,7 @@ Buenos días 6 -11
 Buenas tardes 12 -18
 Buenas noches 19 23
 */
-let hora = 22;
+let hora = 1;
 
 if (hora >= 0 && hora <= 5) {
     console.log("Déjame dormir");
