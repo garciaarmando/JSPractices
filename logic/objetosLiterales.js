@@ -26,5 +26,5 @@ const dog = {
         console.log("Perro ladrando");
     },
 };
-console.log(dog); //imprime los valores de la variable pero ahora dentro del objetos
+console.log(dog); //imprime los valores de la variable pero ahora dentro del objeto
 dog.ladrar();
