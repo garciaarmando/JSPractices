@@ -24,3 +24,13 @@ console.log(fecha.toLocaleString());
 console.log(fecha.toLocaleDateString());
 //para sólo obtener la parte de la hora sin el huso horario
 console.log(fecha.toLocaleTimeString());
+//minutos de diferencia de la hora del meridiano
+console.log(fecha.getTimezoneOffset());
+//obtener el día del meridiano (Londres)
+console.log(fecha.getUTCDate());
+//obtener el día del meridiano
+console.log(fecha.getUTCHours());
+//cuántos segundos han pasado desde 1970
+console.log(Date.now());
+let cumpleArmando = new Date(1995, 0, 04);
+console.log(cumpleArmando);
