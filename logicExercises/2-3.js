@@ -1,21 +1,19 @@
 //7) Programa una función que valide si una palabra o frase dada, es un palíndromo(que se lee igual en un sentido que en otro), pe.mifuncion("Salas") devolverá true.function texto()
 
-function texto() {
-    let palabra = prompt("Escribe una palabra").toLowerCase();
+let texto = prompt(
+    "Ingresa un texto para validar si se trata de un palíndromo"
+);
+const palindromo = (texto = "") => {
+    if (!texto) return console.warn("No ingresaste una palabra o frase");
+    texto = texto.toLowerCase();
+    let alreves = texto.split("").reverse().join("");
+    return texto === alreves ?
+        console.info(
+            `La palabra ${texto} se lee igual que ${alreves}, es un Palíndromo!`
+        ) :
+        console.info(
+            `La palabra ${texto} no se lee igual que ${alreves}, no es un Palíndromo :(`
+        );
+};
 
-    // eliminamos los espacios en blanco
-    palabra = palabra.replace(/ /g, "");
-
-    for (var i = 0; i < palabra.length; i++) {
-        if (palabra[i] != palabra[palabra.length - i - 1]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-if (texto()) {
-    alert("Esto es palíndromo");
-} else {
-    alert("Esto no es palíndromo");
-}
+palindromo(texto);
