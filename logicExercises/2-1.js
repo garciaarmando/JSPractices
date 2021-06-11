@@ -3,12 +3,12 @@
 let texto = prompt("Ingrese el texto a mostrar al revés");
 
 const textoInvertido = (texto = "") => {
-    if (!texto)
-        return console.warn("No se ingresó ningun valor para notar el cambio");
+    if (!texto) return console.warn("No se ingresó ningun valor");
     if (texto.length < 2)
-        return console.error("Por favor ingrese más de un valor");
-    if (Math.sign(texto) === -1)
-        return console.error("El valor no puede ser negativo");
+        return console.error(
+            "Por favor ingrese más de un valor para que el cambio se pueda observar"
+        );
+
     return console.info(texto.split("").reverse().join(""));
 };
 textoInvertido(texto);
