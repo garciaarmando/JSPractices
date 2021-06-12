@@ -13,7 +13,7 @@ const convertirBinarioDecimal = (numero = undefined, base = undefined) => {
         );
     } else if (base === 10) {
         return console.info(
-            `${numero} base ${base} = ${numero.toString(2)} base 2`
+            `${numero} base ${base} = ${numero.toString(base)} base 2`
         );
     } else {
         return console.error("El tipo de base a convertir no es válido");
@@ -21,4 +21,4 @@ const convertirBinarioDecimal = (numero = undefined, base = undefined) => {
 };
 
 convertirBinarioDecimal(1110010, 2);
-convertirBinarioDecimal(114, 11);
+convertirBinarioDecimal(114, 10);
