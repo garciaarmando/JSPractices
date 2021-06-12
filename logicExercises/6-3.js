@@ -2,8 +2,10 @@
 
 const validadorEmail = (email = "") => {
     if (!email) return console.warn("No se ingresó ningún email");
+
     if (typeof email !== "string")
         return console.error(`El valor ${email} no contiene caracteres válidos`);
+
     if (
         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(
             email
@@ -19,4 +21,5 @@ const validadorEmail = (email = "") => {
     }
 };
 
-validadorEmail("a little.lengthy.but.fine@dept.example.com");
+//put a value here
+validadorEmail("");
