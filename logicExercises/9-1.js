@@ -2,22 +2,18 @@
 27) Programa una clase llamada Pelicula.
 
 La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
-  -Todos los datos del objeto son obligatorios.
-  (DONE)Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
-     7 restantes números.
+  (IN PROGRESS)Todos los datos del objeto son obligatorios.
+  (DONE)Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 7 restantes números.
   (DONE)Valida que el título no rebase los 100 caracteres.
   (DONE)Valida que el director no rebase los 50 caracteres.
   (DONE)Valida que el año de estreno sea un número entero de 4 dígitos.
-  - Valida que el país o paises sea introducidos en forma de arreglo.
+  (DONE)Valida que el país o paises sea introducidos en forma de arreglo.
   - Valida que los géneros sean introducidos en forma de arreglo.
-  - Valida que los géneros introducidos esten dentro de los géneros 
-     aceptados*.
-  - Crea un método estático que devuelva los géneros aceptados*.
-  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
-    decimal de una posición.
+  - Valida que los géneros introducidos esten dentro de los géneros aceptados*.
+  (DONE)Crea un método estático que devuelva los géneros aceptados*.
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser decimal de una posición.
   - Crea un método que devuelva toda la ficha técnica de la película.
-  - Apartir de un arreglo con la información de 3 películas genera 3 
-    instancias de la clase de forma automatizada e imprime la ficha técnica 
+  - Apartir de un arreglo con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime la ficha técnica
     de cada película.
 
 * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
@@ -37,6 +33,46 @@ class Pelicula {
         this.validarDirector(director);
         this.validarEstreno(estreno);
         this.validadorPais(pais);
+        this.validadorGeneros(generos);
+    }
+
+    static get listaGeneros() {
+        return [
+            "Action",
+            "Adult",
+            "Adventure",
+            "Animation",
+            "Biography",
+            "Comedy",
+            "Crime",
+            "Documentary",
+            "Drama",
+            "Family",
+            "Fantasy",
+            "Film Noir",
+            "Game-Show",
+            "History",
+            "Horror",
+            "Musical",
+            "Music",
+            "Mystery",
+            "News",
+            "Reality-TV",
+            "Romance",
+            "Sci-Fi",
+            "Short",
+            "Sport",
+            "Talk-Show",
+            "Thriller",
+            "War",
+            "Western",
+        ];
+    }
+
+    static generosAceptados() {
+        return console.info(
+            `Los generos aceptados son: ${Pelicula.listaGeneros.join(", ")}`
+        );
     }
 
     //validar que la cadena lo sea y que no venga vacía
@@ -76,8 +112,14 @@ class Pelicula {
         if (!arr) return console.warn(`${propiedad} "${arr} está vacío"`);
         if (!(arr instanceof Array))
             return console.error(`${propiedad} "${arr}" ingresado no es un arreglo`);
-        if (arr.length < 1)
+        if (arr.length === 0)
             return console.error(`La longitud de "${arr}" no puede ser menor a 1`);
+        for (let cadena of arr) {
+            if (typeof cadena !== "string")
+                return console.error(
+                    `El valor ${cadena} ingresado NO es una cadena de texto`
+                );
+        }
 
         return true;
     }
@@ -117,17 +159,20 @@ class Pelicula {
         }
     }
 
-    validadorPais(arr) {
-        if (this.validarArreglo("País", arr)) {
-            return console.info(arr);
-        }
+    //validar que país sea arreglo, tipo texto y no venga vacío
+    validadorPais(pais) {
+        if (this.validarArreglo("País", pais)) {}
+    }
+    validadorGeneros(generos) {
+        if (this.validarArreglo("Géneros", generos)) {}
     }
 }
-
+// Pelicula.generosAceptados();
 const pelicula = new Pelicula({
     id: "tt1234567",
     titulo: "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890",
     director: "12345678901234567890123456789012345678901234567890",
-    estreno: 1111,
-    pais: [1, 1, 1],
+    estreno: 2020,
+    pais: ["Mexico"],
+    generos: ["Comedia", "Humor Negro"],
 });
