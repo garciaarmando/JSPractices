@@ -10,12 +10,12 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 (DONE)Valida que el director no rebase los 50 caracteres.
 (DONE)Valida que el año de estreno sea un número entero de 4 dígitos.
 (DONE)Valida que el país o paises sea introducidos en forma de arreglo.
-- Valida que los géneros sean introducidos en forma de arreglo.
-- Valida que los géneros introducidos esten dentro de los géneros aceptados*.
+(DONE)Valida que los géneros sean introducidos en forma de arreglo.
+(done)Valida que los géneros introducidos esten dentro de los géneros aceptados*.
 (DONE)Crea un método estático que devuelva los géneros aceptados*.
-- Valida que la calificación sea un número entre 0 y 10 pudiendo ser decimal de una posición.
-- Crea un método que devuelva toda la ficha técnica de la película.
-- Apartir de un arreglo con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime la ficha técnica de cada película.
+(DONE)Valida que la calificación sea un número entre 0 y 10 pudiendo ser decimal de una posición.
+(DONE)Crea un método que devuelva toda la ficha técnica de la película.
+(DONE)Apartir de un arreglo con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime la ficha técnica de cada película.
 
 * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 */
@@ -35,6 +35,7 @@ class Pelicula {
         this.validarEstreno(estreno);
         this.validadorPais(pais);
         this.validadorGeneros(generos);
+        this.validarCalificacion(calificacion);
     }
 
     static get listaGeneros() {
@@ -150,6 +151,8 @@ class Pelicula {
         if (this.validarCadena("Director", director))
             this.validarLongitudCadena("Director", director, 50);
     }
+
+    //validar que estreno sea número y de 4 dígitos
     validarEstreno(estreno) {
         if (this.validarNumero("Año de estreno", estreno)) {
             if (!/^([0-9]){4}$/.test(estreno)) {
@@ -165,15 +168,67 @@ class Pelicula {
         if (this.validarArreglo("País", pais)) {}
     }
     validadorGeneros(generos) {
-        if (this.validarArreglo("Géneros", generos)) {}
+        if (this.validarArreglo("Géneros", generos)) {
+            for (let genero of generos) {
+                if (!Pelicula.listaGeneros.includes(genero)) {
+                    console.error(`Género(s) incorrectos "${generos.join(", ")}"`);
+                    Pelicula.generosAceptados();
+                }
+            }
+        }
+    }
+
+    validarCalificacion(calificacion) {
+        if (this.validarNumero("Calificación", calificacion)) {
+            return calificacion < 0 || calificacion > 10 ?
+                console.error(
+                    `La calificación ${calificacion} es incorrecta, esta debe ser un número entre 0 y 10 pudiendo ser decimal de una posición`
+                ) :
+                (this.calificacion = calificacion.toFixed(1));
+        }
+    }
+
+    fichaTecnica() {
+        console.info(
+            `Ficha Técnica:\n 
+            IMBD id: "${this.id}"\n
+            Título:"${this.titulo}"\n
+            Director: '${this.director}'\n
+            Año de estreno: "${this.estreno}"\n
+            País: '${this.pais.join("-")}'\n
+            Géneros: '${this.generos.join(", ")}'\n
+            Calificación: "${this.calificacion}"`
+        );
     }
 }
-// Pelicula.generosAceptados();
-const pelicula = new Pelicula({
-    id: "tt1234567",
-    titulo: "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890",
-    director: "12345678901234567890123456789012345678901234567890",
-    estreno: 2020,
-    pais: ["Mexico"],
-    generos: ["Comedia", "Humor Negro"],
-});
+
+const tresPeliculas = [{
+        id: "tt8772262",
+        titulo: "Midsomar",
+        director: "Ari Aster",
+        estreno: 2019,
+        pais: ["E.U.A"],
+        generos: ["Drama", "Horror", "Mystery"],
+        calificacion: 7.1,
+    },
+    {
+        id: "tt0790636",
+        titulo: "Dallas Buyers Club",
+        director: "Jean-Marc Vallée",
+        estreno: 2013,
+        pais: ["E.U.A"],
+        generos: ["Drama"],
+        calificacion: 8,
+    },
+    {
+        id: "tt0468569",
+        titulo: "The Dark Knight",
+        director: "Christopher Nolan",
+        estreno: 2008,
+        pais: ["E.U.A"],
+        generos: ["Action", "Crime", "Drama"],
+        calificacion: 9,
+    },
+];
+
+tresPeliculas.forEach((el) => new Pelicula(el).fichaTecnica());
