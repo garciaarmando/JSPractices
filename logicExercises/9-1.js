@@ -118,8 +118,8 @@ class Pelicula {
     }
 
     validadorPais(arr) {
-        if (!this.validarArreglo("País", arr)) {
-            return arr;
+        if (this.validarArreglo("País", arr)) {
+            return console.info(arr);
         }
     }
 }
@@ -129,5 +129,5 @@ const pelicula = new Pelicula({
     titulo: "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890",
     director: "12345678901234567890123456789012345678901234567890",
     estreno: 1111,
-    pais: [1],
+    pais: [1, 1, 1],
 });
