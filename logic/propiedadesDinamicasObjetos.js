@@ -1,6 +1,6 @@
 let aleatorio = Math.round(Math.random() * 100 + 5);
 const objUsuarios = {
-    // [`id_${aleatorio}`]: "Valor aleatorio",
+    [`id_${aleatorio}`]: "Valor aleatorio",
 };
 
 console.log(objUsuarios);
