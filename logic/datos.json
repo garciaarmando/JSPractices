@@ -1,0 +1,8 @@
+{
+    "cadena": "Armando",
+    "numero": 26,
+    "booleano": true,
+    "arreglo": ["Code", "Videogames", "Space"],
+    "objeto": { "twitter": "armando", "email": "armandobfmv@gmail.com" },
+    "nulo": null
+}
