@@ -7,9 +7,8 @@ console.log($linkDOM.style); //devuelve un  objeto del tipo CSSStyleDeclaration
 console.log($linkDOM.style.backgroundColor); //rgb(247, 223, 30)
 console.log($linkDOM.style.color); //rgb(34, 34, 34)
 
-//otra forma es a través de las 'computed Properties' o propiedades dinámicas, es decir, las propiedasdes que el navegador le coloca por default a nuestros elementos HTML
-console.log(getComputedStyle($linkDOM)); //regresa todas las propiedades css válidas y aquellas que el propio navegador modificó
-//Para acceder a una propiedad en específico
+//'computed Properties' -> las propiedasdes que el navegador le coloca por default a nuestros elementos HTML
+console.log(getComputedStyle($linkDOM));
 console.log(getComputedStyle($linkDOM).getPropertyValue("color")); //rgb(34, 34, 34)
 
 //para establecer valores
@@ -30,10 +29,6 @@ $linkDOM.style.borderRadius = "0.5rem";
 console.log($linkDOM.style);
 
 //variables CSS = Custom Properties
-
-//accediendo a las variales css
-
-//1ro se debe saber en dónde están situadas
 
 const $html = document.documentElement; //se almacena la etiqueta html a la que pertenecen las variables
 
