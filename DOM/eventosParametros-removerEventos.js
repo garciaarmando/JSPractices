@@ -11,15 +11,13 @@ $eventoMultiple.addEventListener("click", (e) => {
     console.log(e);
 });
 
-//eliminar eventos de un evento vía removeEventListener, esto solo va a funcionar con manejadores de eventos mltiples, adicional a que la función manejadora no puede ser una arrow function, debe ser una función declarada o una función expresada
-
 const $eventoRemover = document.getElementById("evento-remover");
 
 //removerDoble click empaqueta la lógica de la fuinción manejadora
 const removerDobleClick = (e) => {
     alert(`Removiendo el evento de tipo ${e.type}`);
     console.log(e);
-    //requiere dos parámetros: el evento que cancelaré
+
     $eventoRemover.removeEventListener("dblclick", removerDobleClick);
     $eventoRemover.disabled = true;
 };
