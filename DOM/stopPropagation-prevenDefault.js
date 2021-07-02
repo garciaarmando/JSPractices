@@ -1,6 +1,3 @@
-//stopPropagation útil para cuando no se desea que la propagación ocurra
-//preventDefault para prevenir el evento por default de eventos como el submmit o acciones como el scroll con el teclado o el comportamiento de la aplicación cuando se da click en enlaces
-
 let $divsEventos = document.querySelectorAll(".eventos-flujo div");
 $linkEventos = document.querySelector(".eventos-flujo a");
 
