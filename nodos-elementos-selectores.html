@@ -43,6 +43,24 @@
         .sepia {
             filter: sepia(1);
         }
+        
+        .eventos-flujo div {
+            padding: 4rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+        
+        .uno {
+            background-color: lightgreen;
+        }
+        
+        .dos {
+            background-color: lightcoral;
+        }
+        
+        .tres {
+            background-color: lightblue;
+        }
     </style>
 </head>
 
@@ -108,7 +126,16 @@
     <button id="evento-multiple">addEventListener</button>
     <br /><br />
     <button id="evento-remover">Removiendo eventos</button>
-
-    <script src="./DOM/eventosParametros-removerEventos.js "></script>
+    <h4>Flujo de eventos</h4>
+    <section class="eventos-flujo">
+      <div class="uno">
+        1
+        <div class="dos">
+          2
+          <div class="tres">3</div>
+        </div>
+      </div>
+    </section>
+    <script src="./DOM/burbuja-captura.js "></script>
   </body>
 </html>
