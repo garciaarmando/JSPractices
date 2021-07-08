@@ -1,3 +1,4 @@
+import { moveBall, shortCuts } from "./DOMfiles/eventos-teclado.js";
 import hamburgerMenu from "./DOMfiles/menu_hamburguesa.js";
 import { alarm, digitalClock } from "./DOMfiles/reloj.js";
 
@@ -10,4 +11,11 @@ d.addEventListener("DOMContentLoaded", (e) => {
         "#activar-alarma",
         "#desactivar-alarma"
     );
+});
+//keydown presionar tecla
+//keyup dejar de presionarla
+//keypress mientras se mantenga presionada la tecla
+d.addEventListener("keydown", (e) => {
+    shortCuts(e);
+    moveBall(e, ".ball", ".stage");
 });
