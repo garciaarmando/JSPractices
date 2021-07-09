@@ -1,5 +1,6 @@
 import scrollTopButton from "./DOMfiles/button_scroll.js";
 import countdown from "./DOMfiles/countdown.js";
+import darkMode from "./DOMfiles/dark-mode.js";
 import { moveBall, shortCuts } from "./DOMfiles/eventos-teclado.js";
 import hamburgerMenu from "./DOMfiles/menu_hamburguesa.js";
 import { alarm, digitalClock } from "./DOMfiles/reloj.js";
@@ -15,6 +16,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
     );
     countdown("countdown", "Jan 04, 2022 00:00:00", "Felices 27 🤓");
     scrollTopButton(".scroll-top-btn");
+    darkMode();
 });
 
 d.addEventListener("keydown", (e) => {
