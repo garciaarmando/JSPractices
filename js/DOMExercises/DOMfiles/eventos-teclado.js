@@ -9,9 +9,6 @@ export function moveBall(e, ball, stage) {
         limitsStage = $stage.getBoundingClientRect();
     console.log(limitsBall, limitsStage);
 
-    console.log(e.keyCode);
-    console.log(e.key);
-
     switch (e.keyCode) {
         case 37:
             //left
