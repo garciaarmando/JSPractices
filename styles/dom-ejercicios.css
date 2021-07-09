@@ -195,12 +195,12 @@ img {
     transition: background-color 300ms ease-out, color3400ms ease-out;
 }
 
-.scroll-top-btn:hover {
+.dark-theme-btn:hover {
     background-color: var(--second-color);
     color: var(--main-color);
 }
 
-.hidden {
-    visibility: hidden;
-    opacity: 0;
+.dark-mode {
+    background-color: var(--second-color);
+    color: var(--main-color);
 }
