@@ -1,6 +1,7 @@
 import scrollTopButton from "./DOMfiles/button_scroll.js";
 import countdown from "./DOMfiles/countdown.js";
 import darkTheme from "./DOMfiles/dark-mode.js";
+import userDeviceInfo from "./DOMfiles/deteccion-dispositivos.js";
 import { moveBall, shortCuts } from "./DOMfiles/eventos-teclado.js";
 import hamburgerMenu from "./DOMfiles/menu_hamburguesa.js";
 import { alarm, digitalClock } from "./DOMfiles/reloj.js";
@@ -31,6 +32,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
         `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21377016.780480374!2d98.79935544871296!3d31.985257208835545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479a721ec2b1be6b%3A0x75e85d6b8e91e55b!2sAlemania!5e0!3m2!1ses!2sus!4v1625874454528!5m2!1ses!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`
     );
     responsiveTester("responsive-tester");
+    userDeviceInfo("user-device");
 });
 
 d.addEventListener("keydown", (e) => {
