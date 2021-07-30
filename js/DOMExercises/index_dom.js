@@ -1,4 +1,5 @@
 import scrollTopButton from "./DOMfiles/button_scroll.js";
+import webCam from "./DOMfiles/camera-detection.js";
 import networkStatus from "./DOMfiles/connection-status.js";
 import countdown from "./DOMfiles/countdown.js";
 import darkTheme from "./DOMfiles/dark-mode.js";
@@ -34,6 +35,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
     );
     responsiveTester("responsive-tester");
     userDeviceInfo("user-device");
+    webCam("webcam");
 });
 
 d.addEventListener("keydown", (e) => {
