@@ -1,4 +1,5 @@
 import scrollTopButton from "./DOMfiles/button_scroll.js";
+import networkStatus from "./DOMfiles/connection-status.js";
 import countdown from "./DOMfiles/countdown.js";
 import darkTheme from "./DOMfiles/dark-mode.js";
 import userDeviceInfo from "./DOMfiles/deteccion-dispositivos.js";
@@ -40,3 +41,4 @@ d.addEventListener("keydown", (e) => {
     moveBall(e, ".ball", ".stage");
 });
 darkTheme(".dark-theme-btn", "dark-mode");
+networkStatus();

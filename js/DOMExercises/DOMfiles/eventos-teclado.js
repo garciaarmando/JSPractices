@@ -7,7 +7,6 @@ export function moveBall(e, ball, stage) {
         $stage = d.querySelector(stage),
         limitsBall = $ball.getBoundingClientRect(),
         limitsStage = $stage.getBoundingClientRect();
-    console.log(limitsBall, limitsStage);
 
     switch (e.keyCode) {
         case 37:

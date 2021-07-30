@@ -76,6 +76,7 @@
         try {
             let res = await fetch("https://jsonplaceholder.typicode.com/users"),
                 json = await res.json();
+            console.log(res, json);
             if (!res.ok) {
                 throw { status: res.status, statusText: res.statusText };
             }
@@ -117,8 +118,8 @@
         })
         .finally(() => {
             /* console.log(
-                                                                                                    "Esto se ejecutará independientemente del resultado de Axios"
-                                                                                                ); */
+                                                                                                                                                                                  "Esto se ejecutará independientemente del resultado de Axios"
+                                                                                                                                                                              ); */
         });
 })();
 /**********AXIOS + Async-Await**********/
