@@ -9,6 +9,7 @@ import hamburgerMenu from "./DOMfiles/menu_hamburguesa.js";
 import { alarm, digitalClock } from "./DOMfiles/reloj.js";
 import responsiveMedia from "./DOMfiles/responsive-object.js";
 import responsiveTester from "./DOMfiles/responsive-tester.js";
+import getGeolocation from "./geolocalziacion.js";
 
 const d = document;
 d.addEventListener("DOMContentLoaded", (e) => {
@@ -36,6 +37,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
     responsiveTester("responsive-tester");
     userDeviceInfo("user-device");
     webCam("webcam");
+    getGeolocation("geolocation");
 });
 
 d.addEventListener("keydown", (e) => {
