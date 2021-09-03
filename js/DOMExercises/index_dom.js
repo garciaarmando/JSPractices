@@ -9,7 +9,8 @@ import hamburgerMenu from "./DOMfiles/menu_hamburguesa.js";
 import { alarm, digitalClock } from "./DOMfiles/reloj.js";
 import responsiveMedia from "./DOMfiles/responsive-object.js";
 import responsiveTester from "./DOMfiles/responsive-tester.js";
-import getGeolocation from "./geolocalziacion.js";
+import getGeolocation from "./DOMfiles/geolocalizacion.js";
+import searchFilters from "./DOMfiles/filtro_busquedas.js";
 
 const d = document;
 d.addEventListener("DOMContentLoaded", (e) => {
@@ -38,6 +39,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
     userDeviceInfo("user-device");
     webCam("webcam");
     getGeolocation("geolocation");
+    searchFilters(".card-filter", ".card");
 });
 
 d.addEventListener("keydown", (e) => {
