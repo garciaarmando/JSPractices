@@ -12,6 +12,7 @@ import responsiveTester from "./DOMfiles/responsive-tester.js";
 import getGeolocation from "./DOMfiles/geolocalizacion.js";
 import searchFilters from "./DOMfiles/filtro_busquedas.js";
 import draw from "./DOMfiles/sorteo.js";
+import slider from "./DOMfiles/carrusel.js";
 
 const d = document;
 d.addEventListener("DOMContentLoaded", (e) => {
@@ -42,6 +43,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
     getGeolocation("geolocation");
     searchFilters(".card-filter", ".card");
     draw("#winner-btn", ".player");
+    slider();
 });
 
 d.addEventListener("keydown", (e) => {
