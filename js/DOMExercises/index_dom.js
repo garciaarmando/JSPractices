@@ -11,6 +11,7 @@ import responsiveMedia from "./DOMfiles/responsive-object.js";
 import responsiveTester from "./DOMfiles/responsive-tester.js";
 import getGeolocation from "./DOMfiles/geolocalizacion.js";
 import searchFilters from "./DOMfiles/filtro_busquedas.js";
+import draw from "./DOMfiles/sorteo.js";
 
 const d = document;
 d.addEventListener("DOMContentLoaded", (e) => {
@@ -40,6 +41,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
     webCam("webcam");
     getGeolocation("geolocation");
     searchFilters(".card-filter", ".card");
+    draw("#winner-btn", ".player");
 });
 
 d.addEventListener("keydown", (e) => {
