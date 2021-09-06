@@ -362,7 +362,4 @@ img {
         right: initial;
         left: calc(4.5rem + 1vw);
     }
-    .section {
-        border: 1px solid red;
-    }
 }
