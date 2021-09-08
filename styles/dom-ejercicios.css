@@ -423,8 +423,28 @@ img {
 
 .contact-form-error {
     margin-top: -1rem;
-    font-size: 1rem;
+    font-size: 80%;
     background-color: var(--form-error-color);
     color: #fff;
     transition: all 800ms ease;
+}
+
+.contact-form-error.is-active {
+    display: block;
+    animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+.none {
+    display: none;
+}
+
+@keyframes show-message {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
 }
