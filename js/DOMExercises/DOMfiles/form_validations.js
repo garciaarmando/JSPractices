@@ -10,6 +10,7 @@ export default function contactFormValidations() {
         $span.classList.add("contact-form-error", "none");
         input.insertAdjacentElement("afterend", $span);
     });
+
     d.addEventListener("keyup", (e) => {
         if (e.target.matches(".contact-form [required]")) {
             let $input = e.target,
@@ -28,5 +29,20 @@ export default function contactFormValidations() {
                     d.getElementById($input.name).classList.remove("is-active");
             }
         }
+    });
+
+    d.addEventListener("submit", (e) => {
+        // e.preventDefault();
+        let $loader = d.querySelector(".contact-form-loader"),
+            $response = d.querySelector(".contact-form-response");
+
+        $loader.classList.remove("none");
+
+        setTimeout(() => {
+            $loader.classList.add("none");
+            $response.classList.remove("none");
+            $form.reset();
+            setTimeout(() => $response.classList.add("none"), 3000);
+        }, 3000);
     });
 }
