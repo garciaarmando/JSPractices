@@ -24,7 +24,7 @@ const getHTML = (options) => {
 
 d.addEventListener("DOMContentLoaded", (e) => {
     getHTML({
-        url: "../../assets/ajax/home.html",
+        url: "./home.html",
         success: (html) => ($main.innerHTML = html),
         error: (err) => ($main.innerHTML = `<h1>${err}</h1>`),
     });
