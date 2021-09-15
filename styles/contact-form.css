@@ -87,6 +87,10 @@ body {
     animation: show-message 1s 1 normal 0s ease-out both;
 }
 
+.contact-form-loader {
+    text-align: center;
+}
+
 .none {
     display: none;
 }
