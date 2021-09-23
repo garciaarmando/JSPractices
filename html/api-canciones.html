@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador de canciones</title>
+    <link rel="stylesheet" href="../styles/api-canciones.css" />
+</head>
+
+<body>
+    <h1>Songs Searcher</h1>
+    <form id="song-search">
+        <input type="text" name="artist" placeholder="Interpreter name
+" required autocomplete="off" />
+        <br />
+        <input type="text" name="song" placeholder="Song name" required autocomplete="off" />
+        <br />
+        <input type="submit" />
+        <br />
+    </form>
+    <img class="loader" src="../assets/svg/puff.svg" alt="Loading" />
+    <aside class="error"></aside>
+    <main>
+        <article class="artist">
+            <h2>Artist Information</h2>
+        </article>
+
+        <article class="song">
+            <h2>Song lyrics</h2>
+        </article>
+    </main>
+    <script src="../js/ajax-excercises/api-canciones.js"></script>
+</body>
+
+</html>
