@@ -1,0 +1,14 @@
+const d = document,
+    c = console.log,
+    $site = d.getElementById("site"),
+    $posts = d.getElementById("posts"),
+    $loader = d.querySelector(".loader"),
+    $template = d.getElementById("post-template").content,
+    $fragment = d.createDocumentFragment(),
+    DOMAIN = "https://css-tricks.com",
+    SITE = `${DOMAIN}/wp-json`,
+    API_WP = `${SITE}/wp/v2`,
+    POSTS = `${API_WP}/posts`,
+    PAGES = `${API_WP}/pages`,
+    CATEGORIES = `${API_WP}/categories`;
+USERS = `${API_WP}/users`;
