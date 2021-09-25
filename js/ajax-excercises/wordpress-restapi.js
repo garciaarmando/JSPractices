@@ -1,22 +1,26 @@
 const d = document,
+    w = window,
     c = console.log,
     $site = d.getElementById("site"),
     $posts = d.getElementById("posts"),
     $loader = d.querySelector(".loader"),
     $template = d.getElementById("post-template").content,
     $fragment = d.createDocumentFragment(),
-    DOMAIN = "https://www.remedygames.com",
+    DOMAIN = "https://css-tricks.com",
     SITE = `${DOMAIN}/wp-json`,
     API_WP = `${SITE}/wp/v2`,
     POSTS = `${API_WP}/posts?_embed`,
     PAGES = `${API_WP}/pages`,
-    CATEGORIES = `${API_WP}/categories`;
-USERS = `${API_WP}/users`;
+    CATEGORIES = `${API_WP}/categories`,
+    USERS = `${API_WP}/users`;
+
+let page = 1,
+    perPage = 5;
 
 function getSiteData() {
     fetch(SITE)
-        .then((res) => (res.ok ? res.json() : Promise.reject(res)))
-        .then((json) => {
+        .then(res => (res.ok ? res.json() : Promise.reject(res)))
+        .then(json => {
             // c(json);
             $site.innerHTML = `
             <h3>Web Site</h3>
@@ -27,7 +31,7 @@ function getSiteData() {
             <p>${json.timezone_string}</p>
             `;
         })
-        .catch((err) => {
+        .catch(err => {
             c(err);
             let message = err.statusText || "Something went wrong";
             $site.innerHTML = `<p>Error ${err.status}: ${message}</p>`;
@@ -37,25 +41,27 @@ function getSiteData() {
 
 function getPosts() {
     $loader.style.display = "block";
-    fetch(POSTS)
-        .then((res) => (res.ok ? res.json() : Promise.reject(res)))
-        .then((json) => {
+    fetch(`${POSTS}&page=${page}&per_page=${perPage}`)
+        .then(res => (res.ok ? res.json() : Promise.reject(res)))
+        .then(json => {
             console.log(json);
-            json.forEach((el) => {
+            json.forEach(el => {
                 let categories = "",
                     tags = "";
 
                 el._embedded["wp:term"][0].forEach(
-                    (el) => (categories += `<li>${el.name}</li>`)
+                    el => (categories += `<li>${el.name}</li>`)
                 );
                 el._embedded["wp:term"][1].forEach(
-                    (el) => (tags += `<li>${el.name}</li>`)
+                    el => (tags += `<li>${el.name}</li>`)
                 );
 
-                $template.querySelector(".post-image").src =
-                    el._embedded[
+                $template.querySelector(".post-image").src = el._embedded[
                         "wp:featuredmedia"
-                    ][0].media_details.sizes.medium_large.source_url;
+                    ][0].media_details.sizes.medium_large ?
+                    el._embedded["wp:featuredmedia"][0].media_details.sizes.medium_large
+                    .source_url :
+                    "";
 
                 $template.querySelector(".post-image").alt = el.title.rendered;
 
@@ -94,7 +100,7 @@ function getPosts() {
             $posts.appendChild($fragment);
             $loader.style.display = "none";
         })
-        .catch((err) => {
+        .catch(err => {
             c(err);
             let message = err.statusText || "Something went wrong";
             $posts.innerHTML = `<p>Error ${err.status}: ${message}</p>`;
@@ -102,7 +108,15 @@ function getPosts() {
         });
 }
 
-d.addEventListener("DOMContentLoaded", (e) => {
+d.addEventListener("DOMContentLoaded", e => {
     getSiteData();
     getPosts();
+});
+w.addEventListener("scroll", e => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+    // c(scrollTop, clientHeight, scrollHeight);
+    if (scrollTop + clientHeight >= scrollHeight) {
+        page++;
+        getPosts();
+    }
 });
