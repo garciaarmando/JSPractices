@@ -5,7 +5,7 @@ const d = document,
     $loader = d.querySelector(".loader"),
     $template = d.getElementById("post-template").content,
     $fragment = d.createDocumentFragment(),
-    DOMAIN = "https://css-tricks.com",
+    DOMAIN = "https://www.remedygames.com",
     SITE = `${DOMAIN}/wp-json`,
     API_WP = `${SITE}/wp/v2`,
     POSTS = `${API_WP}/posts?_embed`,
@@ -62,13 +62,13 @@ function getPosts() {
                 $template.querySelector(".post-title").innerHTML = el.title.rendered;
 
                 $template.querySelector(".post-author").innerHTML = `
-                <img src="${el._embedded.author[0].avatar_urls["48"]}" alt="${el._embedded.author[0].name}">
-                <figcaption>${el._embedded.author[0].name}</figcaption>
-                `;
+                        <img src="${el._embedded.author[0].avatar_urls["48"]}" alt="${el._embedded.author[0].name}">
+                        <figcaption>${el._embedded.author[0].name}</figcaption>
+                        `;
 
                 $template.querySelector(".post-date").innerHTML = new Date(
                     el.date
-                ).toLocaleDateString();
+                ).toLocaleString();
 
                 $template.querySelector(".post-link").href = el.link;
 
