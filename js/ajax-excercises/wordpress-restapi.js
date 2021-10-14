@@ -21,7 +21,6 @@ function getSiteData() {
     fetch(SITE)
         .then(res => (res.ok ? res.json() : Promise.reject(res)))
         .then(json => {
-            // c(json);
             $site.innerHTML = `
             <h3>Web Site</h3>
             <h2>
