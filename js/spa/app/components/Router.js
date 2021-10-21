@@ -1,13 +1,14 @@
 import api from "../helpers/wp_api.js";
 import { ajax } from "../helpers/ajax.js";
 import { PostCard } from "./PostCard.js";
+import { Post } from "./Post.js";
 
 export async function Router() {
     const d = document,
         w = window,
         $main = d.getElementById("main");
     let { hash } = location;
-    console.log(hash);
+    // console.log(hash);
     $main.innerHTML = null;
 
     if (!hash || hash === "#/") {
@@ -25,7 +26,14 @@ export async function Router() {
     } else if (hash === "#/contact") {
         $main.innerHTML = `<h2>Contact section</h2>`;
     } else {
-        $main.innerHTML = `<h2>In here, the post content will load</h2>`;
+        // console.log(`${api.POST}/${localStorage.getItem("wpPostId")}`);
+        await ajax({
+            url: `${api.POST}/${localStorage.getItem("wpPostId")}`,
+            cbSuccess: post => {
+                console.log(post);
+                $main.innerHTML = Post(post);
+            },
+        });
     }
     d.querySelector(".loader").style.display = "none";
 }
