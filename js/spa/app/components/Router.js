@@ -22,7 +22,15 @@ export async function Router() {
             },
         });
     } else if (hash.includes("#/search")) {
-        $main.innerHTML = `<h2>Search section</h2>`;
+        let query = localStorage.getItem("wpSearch");
+
+        if (!query) return false;
+        await ajax({
+            url: `${api.SEARCH}${query}`,
+            cbSuccess: search => {
+                console.log(search);
+            },
+        });
     } else if (hash === "#/contact") {
         $main.innerHTML = `<h2>Contact section</h2>`;
     } else {
@@ -30,7 +38,7 @@ export async function Router() {
         await ajax({
             url: `${api.POST}/${localStorage.getItem("wpPostId")}`,
             cbSuccess: post => {
-                console.log(post);
+                // console.log(post);
                 $main.innerHTML = Post(post);
             },
         });
